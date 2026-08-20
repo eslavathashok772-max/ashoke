@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .form-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #333333;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666666;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #4a90e2;
+        }
+        .gender-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        .gender-group label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .gender-group input {
+            width: auto;
+        }
+        .terms {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .terms input {
+            margin-top: 3px;
+        }
+        .terms label {
+            font-size: 13px;
+            color: #666666;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #4a90e2;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .submit-btn:hover {
+            background-color: #357abd;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #666666;
+        }
+        .login-link a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Create Account</h2>
+    <form action="/submit-registration" method="POST">
+        
+        <!-- Full Name -->
+        <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="John Doe" required>
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="At least 8 characters" minlength="8" required>
+        </div>
+
+        <!-- Country Selection -->
+        <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+                <option value="" disabled selected>Select your country</option>
+                <option value="us">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="ca">Canada</option>
+                <option value="in">India</option>
+            </select>
+        </div>
+
+        <!-- Gender Selection -->
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="gender-group">
+                <label><input type="radio" name="gender" value="male" required> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+                <label><input type="radio" name="gender" value="other"> Other</label>
+            </div>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="terms">
+            <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree">I agree to the Terms of Service and Privacy Policy.</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Register</button>
+
+        <!-- Redirect Link -->
+        <div class="login-link">
+            Already have an account? <a href="/login">Sign In</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
